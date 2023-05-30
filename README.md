@@ -42,10 +42,12 @@ To get started with EazyWeb, you can follow these simple steps:
      knife4j:
        config:
          scan-path: com.qimuu.demo.controller
-     spring:
-       mvc:
-         path match:
-           matching-strategy: ant_path_matcher
+    spring:
+      profiles:
+        active: dev
+      mvc:
+        path match:
+          matching-strategy: ant_path_matcher
     ```
    
   - Full configuration：
@@ -60,6 +62,8 @@ To get started with EazyWeb, you can follow these simple steps:
           description: API document description
           scan-path: com.qimuu.demo.controller
       spring:
+        profiles:
+          active: dev
         mvc:
           path match:
             matching-strategy: ant_path_matcher

@@ -41,6 +41,8 @@
      config:
        scan-path: com.qimuu.demo.controller
    spring:
+     profiles:
+       active: dev
      mvc:
        path match:
          matching-strategy: ant_path_matcher
@@ -58,6 +60,8 @@
        description: API document description
        scan-path: com.qimuu.demo.controller
    spring:
+     profiles:
+       active: dev
      mvc:
        path match:
          matching-strategy: ant_path_matcher
