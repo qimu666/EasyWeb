@@ -1,12 +1,12 @@
-<h4 align="right"><strong>English</strong> | <a href="https://github.com/qimu666/EazyWeb/blob/main/README_CN.md">简体中文</a></h4>
+<h4 align="right"><strong>English</strong> | <a href="https://github.com/qimu666/EasyWeb/blob/main/README_CN.md">简体中文</a></h4>
 
 <p align="center">
     <img src=https://img.qimuu.icu/typory/response.png width=138/>
 </p>
 
 
-<h1 align="center">EazyWeb</h1>
-<p align="center"><strong>Quickly build web applications, integrate Knife4j interface documentation, customize error codes and global exception handlers, all in EazyWeb.</strong></p>
+<h1 align="center">EasyWeb</h1>
+<p align="center"><strong>Quickly build web applications, integrate Knife4j interface documentation, customize error codes and global exception handlers, all in EasyWeb.</strong></p>
 
 <div align="center">
     <img alt="Maven" src="https://raster.shields.io/badge/Maven-3.8.1-red.svg"/>
@@ -20,7 +20,7 @@
 
 ## Quick Start 🏁
 
-To get started with EazyWeb, you can follow these simple steps:
+To get started with EasyWeb, you can follow these simple steps:
 
 1. Create a SpringBoot project without adding <span style="color:red">`Web dependencies`</span>.
 
@@ -30,7 +30,7 @@ To get started with EazyWeb, you can follow these simple steps:
    <dependency>
        <groupId>icu.qimuu</groupId>
        <artifactId>EazyWeb</artifactId>
-       <version>0.0.1</version>
+       <version>0.0.2</version>
    </dependency>
    ```
 
@@ -71,6 +71,46 @@ To get started with EazyWeb, you can follow these simple steps:
 
 4. Refresh the dependencies.
 
+## Custom Error Codes 👌
+
+   - By implementing the `Error interface`, you can define your own team’s error handling specifications!
+
+     Example:
+     
+     ```java
+       public enum ErrorCode implements Error {   
+           /**
+            * 状态码
+            */
+           private final int code;
+       
+           /**
+            * 错误信息
+            */
+           private final String message;
+           
+           /**
+            * 成功
+            */
+           SUCCESS(0, "ok"),
+           
+           /**
+            * 请求参数错误
+            */
+           PARAMS_ERROR(40000, "请求参数错误")；
+           
+           @Override
+           public int getCode() {
+               return code;
+           }
+           
+           @Override
+           public String getMessage() {
+               return message;
+           }
+       }
+     ```
+
 ## Our Advantages 😎
 
   **Compared with the traditional way of creating web projects, there is no need to integrate interface documents, and it has rich error codes and flexible global exception handlers.**
@@ -89,15 +129,15 @@ To get started with EazyWeb, you can follow these simple steps:
 
   6. Write business code.
 
-- Use **EazyWeb**:
+- Use **EasyWeb**:
   1. Create a new project.
-  2. Add EazyWeb coordinates.
+  2. Add EasyWeb coordinates.
   3. Configure scanning paths and scanning policies.
   4. Write business code.
 
 ## Features 🌟
 
-EazyWeb provides a variety of features to make your web development process easier and more efficient. Some key features include:
+EasyWeb provides a variety of features to make your web development process easier and more efficient. Some key features include:
 
 - Quick and easy web application construction.
 - Simple and intuitive API.
@@ -106,10 +146,10 @@ EazyWeb provides a variety of features to make your web development process easi
 
 ## Contribution 🤝
 
-If you have any questions or suggestions about EazyWeb, please feel free to contact us at any time: 📩 Email: 2483482026@qq.com .
+If you have any questions or suggestions about EasyWeb, please feel free to contact us at any time: 📩 Email: 2483482026@qq.com .
 
 ## Contact Us 📩
 
-If you have any questions or suggestions about EazyWeb, please feel free to [contact us](2483482026@qq.com).
+If you have any questions or suggestions about EasyWeb, please feel free to [contact us](2483482026@qq.com).
 
-Thank you for using EazyWeb! 😊
+Thank you for using EasyWeb! 😊

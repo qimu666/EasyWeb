@@ -1,4 +1,4 @@
-package com.qimuu.eazyweb.config;
+package com.qimuu.easyweb.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -17,7 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * Knife4j 接口文档配置
  * <a href="https://doc.xiaominfo.com/knife4j/documentation/get_start.html">...</a>
  *
- * @author qimu
+ * @author QiMu
  */
 @Configuration
 @EnableSwagger2

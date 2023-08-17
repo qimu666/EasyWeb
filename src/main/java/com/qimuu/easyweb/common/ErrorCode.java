@@ -1,19 +1,43 @@
-package com.qimuu.eazyweb.common;
+package com.qimuu.easyweb.common;
 
 /**
- * 错误码
+ * 同一返回错误码
  *
- * @author yupi
+ * @author QiMu
  */
-public enum ErrorCode {
+public enum ErrorCode implements Error {
 
+    /**
+     * 成功
+     */
     SUCCESS(0, "ok"),
+    /**
+     * 请求参数错误
+     */
     PARAMS_ERROR(40000, "请求参数错误"),
+    /**
+     * 未登录
+     */
     NOT_LOGIN_ERROR(40100, "未登录"),
+    /**
+     * 无权限
+     */
     NO_AUTH_ERROR(40101, "无权限"),
+    /**
+     * 请求数据不存在
+     */
     NOT_FOUND_ERROR(40400, "请求数据不存在"),
+    /**
+     * 禁止访问
+     */
     FORBIDDEN_ERROR(40300, "禁止访问"),
+    /**
+     * 系统错误
+     */
     SYSTEM_ERROR(50000, "系统内部异常"),
+    /**
+     * 操作错误
+     */
     OPERATION_ERROR(50001, "操作失败");
 
     /**
@@ -22,7 +46,7 @@ public enum ErrorCode {
     private final int code;
 
     /**
-     * 信息
+     * 错误信息
      */
     private final String message;
 
@@ -31,12 +55,12 @@ public enum ErrorCode {
         this.message = message;
     }
 
+    @Override
     public int getCode() {
         return code;
     }
-
+    @Override
     public String getMessage() {
         return message;
     }
-
 }

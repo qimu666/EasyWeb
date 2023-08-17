@@ -1,11 +1,11 @@
-package com.qimuu.eazyweb.config;
+package com.qimuu.easyweb.config;
 
-import com.qimuu.eazyweb.exception.GlobalExceptionHandler;
+import com.qimuu.easyweb.exception.GlobalExceptionHandler;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 /**
- * @author qimu
+ * @author QiMu
  */
 @Configuration
 @Import({GlobalExceptionHandler.class, Knife4jConfig.class})

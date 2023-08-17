@@ -1,18 +1,19 @@
-package com.qimuu.eazyweb.common;
+package com.qimuu.easyweb.common;
 
 import lombok.Data;
 
 import java.io.Serializable;
 
 /**
- * 通用返回类
- *
- * @param <T>
- * @author yupi
+ * @Author: 通用返回类
+ * @Date: 2023/08/16 03:02:16
+ * @Version: 1.0
+ * @Description: 基反应
  */
 @Data
 public class BaseResponse<T> implements Serializable {
 
+    private static final long serialVersionUID = 4887078045405290846L;
     private int code;
 
     private T data;
@@ -29,7 +30,7 @@ public class BaseResponse<T> implements Serializable {
         this(code, data, "");
     }
 
-    public BaseResponse(ErrorCode errorCode) {
+    public BaseResponse(Error errorCode) {
         this(errorCode.getCode(), null, errorCode.getMessage());
     }
 }
