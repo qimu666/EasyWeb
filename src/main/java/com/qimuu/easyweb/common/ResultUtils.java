@@ -19,36 +19,33 @@ public class ResultUtils {
 
     /**
      * 错误
-     * 失败
      *
      * @param errorCode 错误代码
-     * @return {@link BaseResponse}
+     * @return {@link BaseResponse}<{@link T}>
      */
-    public static BaseResponse error(Error errorCode) {
+    public static <T> BaseResponse<T> error(Error errorCode) {
         return new BaseResponse<>(errorCode);
     }
 
     /**
      * 错误
-     * 失败
      *
      * @param code    代码
      * @param message 消息
-     * @return {@link BaseResponse}
+     * @return {@link BaseResponse}<{@link T}>
      */
-    public static BaseResponse error(int code, String message) {
-        return new BaseResponse(code, null, message);
+    public static <T> BaseResponse<T> error(int code, String message) {
+        return new BaseResponse<>(code, null, message);
     }
 
     /**
      * 错误
-     * 失败
      *
      * @param errorCode 错误代码
      * @param message   消息
-     * @return {@link BaseResponse}
+     * @return {@link BaseResponse}<{@link T}>
      */
-    public static BaseResponse error(Error errorCode, String message) {
-        return new BaseResponse(errorCode.getCode(), null, message);
+    public static <T> BaseResponse<T> error(Error errorCode, String message) {
+        return new BaseResponse<>(errorCode.getCode(), null, message);
     }
 }

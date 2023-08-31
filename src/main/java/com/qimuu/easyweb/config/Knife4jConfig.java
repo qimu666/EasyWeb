@@ -32,7 +32,7 @@ public class Knife4jConfig {
     /**
      * 描述信息
      */
-    private String description = "";
+    private String description;
     /**
      * 版本信息
      */
@@ -44,12 +44,17 @@ public class Knife4jConfig {
     /**
      * 作者
      */
-    private String name = "";
+    private String name;
 
     /**
      * 邮箱
      */
-    private String email = "";
+    private String email;
+
+    /**
+     * url
+     */
+    private String url;
 
     @Bean
 
@@ -57,7 +62,7 @@ public class Knife4jConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(new ApiInfoBuilder()
                         .title(title)
-                        .contact(new Contact(name, "", email))
+                        .contact(new Contact(name, url, email))
                         .description(description)
                         .version(version)
                         .build())

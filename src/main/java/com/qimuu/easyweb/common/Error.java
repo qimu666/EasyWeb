@@ -22,8 +22,4 @@ public interface Error {
      */
     String getMessage();
 
-    /**
-     * 系统错误 ()
-     */
-    int SYSTEM_ERROR = 50000;
 }

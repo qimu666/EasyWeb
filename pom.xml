@@ -10,7 +10,7 @@
     </parent>
     <groupId>icu.qimuu</groupId>
     <artifactId>EasyWeb</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
     <name>EasyWeb</name>
     <description>EasyWeb</description>
 
@@ -118,5 +118,4 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
 </project>
