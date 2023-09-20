@@ -1,10 +1,14 @@
 package com.qimuu.easyweb.config;
 
 import lombok.Data;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.RequestHandler;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -12,6 +16,8 @@ import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
+import java.util.function.Predicate;
 
 /**
  * Knife4j 接口文档配置
@@ -21,7 +27,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @Configuration
 @EnableSwagger2
-@Profile({"dev", "test"})
+@Profile("!prod")
 @Data
 @ConfigurationProperties("knife4j.config")
 public class Knife4jConfig {
@@ -57,7 +63,6 @@ public class Knife4jConfig {
     private String url;
 
     @Bean
-
     public Docket defaultApi2() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(new ApiInfoBuilder()
@@ -68,6 +73,22 @@ public class Knife4jConfig {
                         .build())
                 .select()
                 // 指定 Controller 扫描包路径
-                .apis(RequestHandlerSelectors.basePackage(scanPath)).paths(PathSelectors.any()).build();
+                .apis(selector(scanPath))
+                .paths(PathSelectors.any()).build();
+    }
+
+
+    /**
+     * 路径选择器
+     *
+     * @param scanPath 扫描路径
+     * @return {@link Predicate}<{@link RequestHandler}>
+     */
+    private Predicate<RequestHandler> selector(String scanPath) {
+        if (StringUtils.isBlank(scanPath)) {
+            return RequestHandlerSelectors.withClassAnnotation(RestController.class)
+                    .or(RequestHandlerSelectors.withClassAnnotation(Controller.class));
+        }
+        return RequestHandlerSelectors.basePackage(scanPath);
     }
 }

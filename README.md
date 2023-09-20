@@ -28,31 +28,26 @@ To get started with EasyWeb, you can follow these simple steps:
 
    ```xml
    <dependency>
-       <groupId>icu.qimuu</groupId>
-       <artifactId>EazyWeb</artifactId>
-       <version>0.0.2</version>
+      <groupId>icu.qimuu</groupId>
+      <artifactId>EasyWeb</artifactId>
+      <version>0.0.5</version>
    </dependency>
    ```
 
-3. Configuration information: where <span style="color: red">`Controller and matching strategy: ant_ Path_ Matcher`</span>must be configured
+3. Configuration information: where <span style="color: red">`matching strategy: ant_ Path_ Matcher`</span>must be configured
 
    - Simplified configuration:
 
     ```yml
-     knife4j:
-       config:
-         scan-path: com.qimuu.demo.controller
     spring:
-      profiles:
-        active: dev
       mvc:
         path match:
           matching-strategy: ant_path_matcher
     ```
    
-  - Full configuration：
+   - Full configuration：
 
-      ```yml
+   ```yml
       knife4j:
         config:
           name: Author
@@ -67,9 +62,35 @@ To get started with EasyWeb, you can follow these simple steps:
         mvc:
           path match:
             matching-strategy: ant_path_matcher
-      ```
+   ```
 
-4. Refresh the dependencies.
+5. **Sample code**
+
+    ```java
+    @GetMapping("/getPoisonousChickenSoupNotSetKey")
+    public BaseResponse<PoisonousChickenSoupResponse> getPoisonousChickenSoupNotSetKey() {
+        PoisonousChickenSoupResponse poisonousChickenSoup = null;
+        try {
+            poisonousChickenSoup = apiService.getPoisonousChickenSoup();
+        } catch (BusinessException e) {
+            throw new BusinessException(e.getCode(), e.getMessage());
+        }
+        return ResultUtils.success(poisonousChickenSoup);
+    }
+    ```
+    
+6. Response Example：
+   
+
+    ```json
+    {
+      "code": 0,
+      "data": {
+        "text": "The three major human illusions a phone rings, someone knocks at the door, and they like me."
+      },
+      "message": "ok"
+    }
+    ```
 
 ## Custom Error Codes 👌
 
@@ -80,22 +101,22 @@ To get started with EasyWeb, you can follow these simple steps:
      ```java
        public enum ErrorCode implements Error {   
            /**
-            * 状态码
+            * Status code
             */
            private final int code;
        
            /**
-            * 错误信息
+            * error message
             */
            private final String message;
            
            /**
-            * 成功
+            * success
             */
            SUCCESS(0, "ok"),
            
            /**
-            * 请求参数错误
+            * Request parameter error
             */
            PARAMS_ERROR(40000, "请求参数错误")；
            

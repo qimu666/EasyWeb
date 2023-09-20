@@ -1,4 +1,5 @@
-<h4 align="right"><a href="https://github.com/qimu666/EasyWeb/blob/main/README.md">English</a> | </strong> 简体中文</strong></h4>
+<h4 align="right"><a href="https://github.com/qimu666/EasyWeb/blob/main/README.md">English</a> | </strong>
+简体中文</strong></h4>
 
 <p align="center">
     <img src=https://img.qimuu.icu/typory/response.png width=138/>
@@ -26,30 +27,24 @@
 
    ```xml
    <dependency>
-       <groupId>icu.qimuu</groupId>
-       <artifactId>EazyWeb</artifactId>
-       <version>0.0.2</version>
+      <groupId>icu.qimuu</groupId>
+      <artifactId>EasyWeb</artifactId>
+      <version>0.0.5</version>
    </dependency>
    ```
 
-3. 配置信息：其中<span style="color:red">`Controller和 matching-strategy: ant_path_matcher`</span>必须配置
+3. 配置信息：其中<span style="color:red">`matching-strategy: ant_path_matcher`</span>必须配置
 
    - 简略配置：
 
    ```yml
-   knife4j:
-     config:
-       // 接口包扫描路径
-       scan-path: com.qimuu.demo.controller
    spring:
-     profiles:
-       active: dev
      mvc:
        path match:
          matching-strategy: ant_path_matcher
    ```
 
-   - 全量配置：
+    - 全量配置：
 
    ```yml
    knife4j:
@@ -68,69 +63,95 @@
          matching-strategy: ant_path_matcher
    ```
 
- 4. 刷新依赖
+5. **示例代码**
+
+    ```java
+    @GetMapping("/getPoisonousChickenSoupNotSetKey")
+    public BaseResponse<PoisonousChickenSoupResponse> getPoisonousChickenSoupNotSetKey() {
+        PoisonousChickenSoupResponse poisonousChickenSoup = null;
+        try {
+            poisonousChickenSoup = apiService.getPoisonousChickenSoup();
+        } catch (BusinessException e) {
+            throw new BusinessException(e.getCode(), e.getMessage());
+        }
+        return ResultUtils.success(poisonousChickenSoup);
+    }
+    ```
+    
+6. 响应示例：
+   
+
+    ```json
+    {
+      "code": 0,
+      "data": {
+        "text": "人类三大错觉—手机响了，有人敲门，他（她）喜欢我。"
+      },
+      "message": "ok"
+    }
+    ```
 
 ## 我们的优势😎
 
-  **相比传统的创建Web项目，无需整合接口文档，拥有丰富的错误码，灵活的全局异常处理器。**
+**相比传统的创建Web项目，无需整合接口文档，拥有丰富的错误码，灵活的全局异常处理器。**
 
 - 传统的创建Web项目：
 
-  1. 创建新的项目
+    1. 创建新的项目
 
-  2. 编写全局异常处理器
+    2. 编写全局异常处理器
 
-  3. 整合接口文档
+    3. 整合接口文档
 
-  4. 自定义错误码
+    4. 自定义错误码
 
-  5. 可以自定义自己内部通用返回类
+    5. 可以自定义自己内部通用返回类
 
-  6. 编写业务代码
--  使用**EasyWeb**
-  1. 创建新的项目
-  2. 引入EazyWeb坐标
-  3. 配置扫描路径和扫描策略
-  4. 编写业务代码
+    6. 编写业务代码
+- 使用**EasyWeb**
+1. 创建新的项目
+2. 引入EazyWeb坐标
+3. 配置扫描路径和扫描策略
+4. 编写业务代码
 
 ## 自定义错误码👌
 
 - 通过实现`Error接口`即的可定义属于自己的团队的错误处理规范！！！
 
-​      示例:
+ 示例:
 
  ```java
-  public enum ErrorCode implements Error {   
-      /**
-       * 状态码
-       */
-      private final int code;
-  
-      /**
-       * 错误信息
-       */
-      private final String message;
-      
-      /**
-       * 成功
-       */
-      SUCCESS(0, "ok"),
-      
-      /**
-       * 请求参数错误
-       */
-      PARAMS_ERROR(40000, "请求参数错误")；
-      
-      @Override
-      public int getCode() {
-          return code;
-      }
-      
-      @Override
-      public String getMessage() {
-          return message;
-      }
-  }
+  public enum ErrorCode implements Error {
+    /**
+     * 状态码
+     */
+    private final int code;
+
+    /**
+     * 错误信息
+     */
+    private final String message;
+
+    /**
+     * 成功
+     */
+    SUCCESS(0,"ok"),
+
+    /**
+     * 请求参数错误
+     */
+    PARAMS_ERROR(40000,"请求参数错误")；
+
+    @Override
+    public int getCode() {
+        return code;
+    }
+
+    @Override
+    public String getMessage() {
+        return message;
+    }
+}
  ```
 
 ## 特点 🌟

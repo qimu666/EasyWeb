@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -10,13 +10,12 @@
     </parent>
     <groupId>icu.qimuu</groupId>
     <artifactId>EasyWeb</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.5</version>
     <name>EasyWeb</name>
-    <description>EasyWeb</description>
+    <description>快速构建Web应用，整合Knife4j接口文档，自定义错误码和全局异常处理器，一切尽在EasyWeb。</description>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
     </properties>
 
     <distributionManagement>
@@ -106,6 +105,10 @@
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-spring-boot-starter</artifactId>
             <version>3.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
