@@ -63,7 +63,9 @@
          matching-strategy: ant_path_matcher
    ```
 
-5. **示例代码**
+   使用时需要在控制层类上加上`@RestController`或`@Controller`注解
+
+4. **示例代码**
 
     ```java
     @GetMapping("/getPoisonousChickenSoupNotSetKey")
@@ -77,9 +79,9 @@
         return ResultUtils.success(poisonousChickenSoup);
     }
     ```
-    
-6. 响应示例：
-   
+
+5. 响应示例：
+
 
     ```json
     {

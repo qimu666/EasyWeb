@@ -44,7 +44,7 @@ To get started with EasyWeb, you can follow these simple steps:
         path match:
           matching-strategy: ant_path_matcher
     ```
-   
+
    - Full configuration：
 
    ```yml
@@ -63,6 +63,8 @@ To get started with EasyWeb, you can follow these simple steps:
           path match:
             matching-strategy: ant_path_matcher
    ```
+
+   When using, annotations such as `@RestController ` or ` @Controller ` need to be added to the control layer class
 
 5. **Sample code**
 
