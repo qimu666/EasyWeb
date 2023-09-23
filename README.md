@@ -82,7 +82,6 @@ To get started with EasyWeb, you can follow these simple steps:
     ```
     
 6. Response Example：
-   
 
     ```json
     {
@@ -93,6 +92,28 @@ To get started with EasyWeb, you can follow these simple steps:
       "message": "ok"
     }
     ```
+
+### If you do not want to use the Knife4j interface documentation, simply configure as follows to close the knife4j interface
+
+ ```yml
+    knife4j:
+      enable: true
+      production: true
+ ```
+
+### If you want the interface document to enable authentication, just configure the following
+
+```
+knife4j:
+  # Enable enhanced configuration
+  enable: true
+  basic:
+    enable: true
+    # Set your own Basic authentication user name
+    username: root
+    # Set your own Basic authentication password
+    password: 1234
+```
 
 ## Custom Error Codes 👌
 
