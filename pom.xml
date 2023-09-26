@@ -10,7 +10,7 @@
     </parent>
     <groupId>icu.qimuu</groupId>
     <artifactId>EasyWeb</artifactId>
-    <version>0.0.5</version>
+    <version>0.0.6</version>
     <name>EasyWeb</name>
     <description>快速构建Web应用，整合Knife4j接口文档，自定义错误码和全局异常处理器，一切尽在EasyWeb。</description>
 
@@ -101,10 +101,15 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.xiaoymin</groupId>-->
+<!--            <artifactId>knife4j-spring-boot-starter</artifactId>-->
+<!--            <version>3.0.3</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-spring-boot-starter</artifactId>
-            <version>3.0.3</version>
+            <artifactId>knife4j-openapi2-spring-boot-starter</artifactId>
+            <version>4.3.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>

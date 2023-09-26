@@ -30,23 +30,16 @@ To get started with EasyWeb, you can follow these simple steps:
    <dependency>
       <groupId>icu.qimuu</groupId>
       <artifactId>EasyWeb</artifactId>
-      <version>0.0.5</version>
+      <version>0.0.6</version>
    </dependency>
    ```
 
-3. Configuration information: where <span style="color: red">`matching strategy: ant_ Path_ Matcher`</span>must be configured
+3. Configuration information:
 
-   - Simplified configuration:
+   - **💥  Starting from `0.0.6` in the new version, you can use the Knife4j interface documentation, custom error codes, and global exception handlers without any configuration, and you will not feel the presence of EasyWeb**
 
-    ```yml
-    spring:
-      mvc:
-        path match:
-          matching-strategy: ant_path_matcher
-    ```
-
-   - Full configuration：
-
+   - Of course, you can also configure some `personalized` configurations that you need. **The configurations are as follows:**
+   
    ```yml
       knife4j:
         config:
@@ -63,9 +56,9 @@ To get started with EasyWeb, you can follow these simple steps:
           path match:
             matching-strategy: ant_path_matcher
    ```
-
+   
    When using, annotations such as `@RestController ` or ` @Controller ` need to be added to the control layer class
-
+   
 5. **Sample code**
 
     ```java

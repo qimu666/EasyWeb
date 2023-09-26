@@ -28,28 +28,22 @@
    <dependency>
       <groupId>icu.qimuu</groupId>
       <artifactId>EasyWeb</artifactId>
-      <version>0.0.5</version>
+      <version>0.0.6</version>
    </dependency>
    ```
 
-3. 配置信息：其中<span style="color:red">`matching-strategy: ant_path_matcher`</span>必须配置
+3. 配置信息：
 
-   - 简略配置：
+   - **💥 在新的版本从`0.0.6`开始，您<span style="color:red">无需任何配置</span>即可使用Knife4j接口文档，自定义错误码和全局异常处理器， 您将感觉不到EasyWeb的存在。**
 
-   ```yml
-   spring:
-     mvc:
-       path match:
-         matching-strategy: ant_path_matcher
-   ```
-
-    - 全量配置：
+   - 当然您也可以配置一些您自己需要的`个性化`配置，**配置如下**：
 
    ```yml
    knife4j:
      config:
        name: Author
        email: xxx
+       url: xxx
        version: API version
        title: API document
        description: API document description
@@ -57,12 +51,9 @@
    spring:
      profiles:
        active: dev
-     mvc:
-       path match:
-         matching-strategy: ant_path_matcher
    ```
 
-   使用时需要在控制层类上加上`@RestController`或`@Controller`注解
+   **使用时需要在控制层类上加上`@RestController`或`@Controller`注解**
 
 4. **示例代码**
 
